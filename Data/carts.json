@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Camiseta Lakers",
+    "quantity": 3,
+    "price": 80
+  },
+  {
+    "id": 2,
+    "name": "Camiseta Celtics",
+    "quantity": 1,
+    "price": 75
+  }
+]
