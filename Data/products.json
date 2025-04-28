@@ -12,5 +12,96 @@
         "price": 75,
         "team": "Celtics",
         "stock": 15
+    },
+    {
+        "id": 3,
+        "name": "Camiseta Bulls",
+        "price": 70,
+        "team": "Bulls",
+        "stock": 20
+    },
+    {
+        "id": 4,
+        "name": "Camiseta Warriors",
+        "price": 85,
+        "team": "Warriors",
+        "stock": 5
+    },
+    {
+        "id": 5,
+        "name": "Camiseta Knicks",
+        "price": 90,
+        "team": "Knicks",
+        "stock": 8
+    },
+    {
+        "id": 6,
+        "name": "Camiseta Heat",
+        "price": 77,
+        "team": "Heat",
+        "stock": 12
+    },
+    {
+        "id": 7,
+        "name": "Camiseta Nets",
+        "price": 82,
+        "team": "Nets",
+        "stock": 10
+    },
+    {
+        "id": 8,
+        "name": "Camiseta Rockets",
+        "price": 78,
+        "team": "Rockets",
+        "stock": 18
+    },
+    {
+        "id": 9,
+        "name": "Camiseta Spurs",
+        "price": 68,
+        "team": "Spurs",
+        "stock": 25
+    },
+    {
+        "id": 10,
+        "name": "Camiseta Suns",
+        "price": 80,
+        "team": "Suns",
+        "stock": 7
+    },
+    {
+        "id": 11,
+        "name": "Camiseta Bucks",
+        "price": 95,
+        "team": "Bucks",
+        "stock": 9
+    },
+    {
+        "id": 12,
+        "name": "Camiseta 76ers",
+        "price": 85,
+        "team": "76ers",
+        "stock": 13
+    },
+    {
+        "id": 13,
+        "name": "Camiseta Mavericks",
+        "price": 77,
+        "team": "Mavericks",
+        "stock": 17
+    },
+    {
+        "id": 14,
+        "name": "Camiseta Jazz",
+        "price": 72,
+        "team": "Jazz",
+        "stock": 22
+    },
+    {
+        "id": 15,
+        "name": "Camiseta Raptors",
+        "price": 65,
+        "team": "Raptors",
+        "stock": 30
     }
 ]

@@ -2,13 +2,55 @@
   {
     "id": 1,
     "name": "Camiseta Lakers",
-    "quantity": 3,
+    "quantity": 7,
     "price": 80
   },
   {
     "id": 2,
     "name": "Camiseta Celtics",
-    "quantity": 1,
+    "quantity": 10,
     "price": 75
+  },
+  {
+    "id": 3,
+    "name": "Camiseta Bulls",
+    "quantity": 2,
+    "price": 70
+  },
+  {
+    "id": 8,
+    "name": "Camiseta Rockets",
+    "quantity": 2,
+    "price": 78
+  },
+  {
+    "id": 12,
+    "name": "Camiseta 76ers",
+    "quantity": 1,
+    "price": 85
+  },
+  {
+    "id": 7,
+    "name": "Camiseta Nets",
+    "quantity": 1,
+    "price": 82
+  },
+  {
+    "id": 4,
+    "name": "Camiseta Warriors",
+    "quantity": 2,
+    "price": 85
+  },
+  {
+    "id": 15,
+    "name": "Camiseta Raptors",
+    "quantity": 1,
+    "price": 65
+  },
+  {
+    "id": 11,
+    "name": "Camiseta Bucks",
+    "quantity": 2,
+    "price": 95
   }
 ]
