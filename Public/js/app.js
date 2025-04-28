@@ -1,4 +1,3 @@
-// Obtener productos de la API y mostrarlos en el frontend
 fetch("/products")
     .then(response => response.json())
     .then(products => {

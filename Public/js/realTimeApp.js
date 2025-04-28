@@ -1,6 +1,5 @@
 const socket = io();
 
-// Obtener los productos al cargar la página
 socket.on("updateProducts", (products) => {
     const productListDiv = document.getElementById("product-list");
     productListDiv.innerHTML = products.map((product) => `
@@ -25,12 +24,12 @@ form.addEventListener("submit", (event) => {
         stock: parseInt(document.getElementById("stock").value),
     };
 
-    socket.emit("addProduct", newProduct);  // Emitir un evento para agregar el producto
+    socket.emit("addProduct", newProduct);
     form.reset();
 });
 
 // Eliminar un producto
 function deleteProduct() {
     const productId = parseInt(document.getElementById("delete-product-id").value);
-    socket.emit("deleteProduct", productId);  // Emitir un evento para eliminar el producto
+    socket.emit("deleteProduct", productId);
 }
