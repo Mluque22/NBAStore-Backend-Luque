@@ -1,32 +1,29 @@
 const express = require("express");
-const { readFile, writeFile } = require("../utils/fileManager");
 const router = express.Router();
-const filePath = "./data/products.json";
+const Product = require("../models/product");
+const productController = require('../controllers/productController');
 
-// Obtener todos los productos
-router.get("/", (req, res) => {
-    res.json(readFile(filePath));
+router.get('/', productController.getAllProducts);
+// Obtener todos los productos (JSON)
+router.get("/", async (req, res) => {
+    try {
+        const products = await Product.find();
+        res.json(products);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
 });
 
-// Obtener un producto por ID
-router.get("/:id", (req, res) => {
-    const products = readFile(filePath);
-    const product = products.find(p => p.id === parseInt(req.params.id));
-    product ? res.json(product) : res.status(404).json({ error: "Producto no encontrado" });
-});
-
-// Agregar un nuevo producto
-router.post("/", (req, res) => {
-    let products = readFile(filePath);
-    const { name, price, team, stock } = req.body;
-
-    if (!name || !price || !team || !stock) return res.status(400).json({ error: "Faltan datos" });
-
-    const newProduct = { id: products.length + 1, name, price, team, stock };
-    products.push(newProduct);
-    writeFile(filePath, products);
-
-    res.json({ message: "Producto agregado", product: newProduct });
+// Crear nuevo producto
+router.post("/", async (req, res) => {
+    try {
+        const { name, price, team, stock, imageUrl } = req.body;
+        const product = new Product({ name, price, team, stock, imageUrl });
+        await product.save();
+        res.status(201).json(product);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
 });
 
 module.exports = router;

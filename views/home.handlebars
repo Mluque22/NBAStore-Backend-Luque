@@ -1,23 +1,13 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Inicio - Tienda NBA</title>
-</head>
-
-<body>
-    <h1>Bienvenido a la Tienda NBA</h1>
-    <div id="products">
-        {{#each products}}
-        <div>
+<h1>Productos Disponibles</h1>
+<div id="products">
+    {{#each products}}
+    <div class="product-card">
+        <img src="/images/{{this.team}}.avif" alt="{{this.team}}" class="product-image">
+        <div class="product-info">
             <h3>{{this.name}}</h3>
-            <p>Equipo: {{this.team}}</p>
             <p>Precio: ${{this.price}}</p>
             <p>Stock: {{this.stock}}</p>
         </div>
-        {{/each}}
     </div>
-</body>
-
-</html>
+    {{/each}}
+</div>

@@ -1,22 +1,21 @@
-fetch("/products")
-    .then(response => response.json())
-    .then(products => {
-        const container = document.getElementById("products");
-        container.innerHTML = products.map(p =>
-            `<div class="product-card">
-                <h3>${p.name}</h3>
-                <p>Equipo: ${p.team}</p>
-                <p>Precio: $${p.price}</p>
-                <p>Stock: ${p.stock}</p>
-                <button onclick="addToCart(${p.id})">Añadir al carrito</button>
-            </div>`
-        ).join("");
-    });
-
-// Función para agregar un producto al carrito
-function addToCart(productId) {
-    fetch(`/carts/add/${productId}`, { method: "POST" })
-        .then(response => response.json())
-        .then(data => alert(data.message))
-        .catch(error => console.log(error));
-}
+document.addEventListener('DOMContentLoaded', () => {
+    fetch('/api/products')
+        .then(res => res.json())
+        .then(products => {
+            const container = document.getElementById('products');
+            container.innerHTML = '';
+            products.forEach(product => {
+                container.innerHTML += `
+          <div class="product-card">
+            <img src="${product.imageUrl}" alt="${product.name}" class="product-image" />
+            <div class="product-info">
+              <h3>${product.name}</h3>
+              <p>Equipo: ${product.team}</p>
+              <p>Precio: $${product.price}</p>
+              <p>Stock: ${product.stock}</p>
+            </div>
+          </div>`;
+            });
+        })
+        .catch(console.error);
+});
