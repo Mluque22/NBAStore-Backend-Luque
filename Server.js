@@ -5,11 +5,15 @@ const { createServer } = require('http');
 const { Server } = require('socket.io');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const cookieParser = require('cookie-parser');
+const passport = require('passport');
 
 const productRoutes = require('./routes/products');
 const cartRoutes = require('./routes/carts');
 const viewRoutes = require('./routes/views');
+const sessionRoutes = require('./routes/sessions');
 const Product = require('./models/product');
+const initializePassport = require('./config/passport');
 
 const app = express();
 const httpServer = createServer(app);
@@ -17,7 +21,11 @@ const io = new Server(httpServer);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+initializePassport();
+app.use(passport.initialize());
 
 app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
@@ -25,6 +33,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use('/api/products', productRoutes);
 app.use('/api/carts', cartRoutes);
+app.use('/api/sessions', sessionRoutes);
 app.use('/', viewRoutes);
 
 io.on('connection', (socket) => {
