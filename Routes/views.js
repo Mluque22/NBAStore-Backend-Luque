@@ -1,6 +1,8 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const { renderHome, renderRealTimeProducts } = require("../controllers/views");
-router.get("/", renderHome);
-router.get("/realtimeproducts", renderRealTimeProducts);
+const viewsController = require('../controllers/views');
+
+router.get('/', viewsController.renderHome);
+router.get('/realtimeproducts', viewsController.renderRealTimeProducts);
+
 module.exports = router;
