@@ -1,19 +1,39 @@
-const Product = require("../models/product");
-exports.getAllProducts = async (req, res) => {
-    try {
-        const products = await Product.find();
-        res.json(products);
-    } catch (error) {
-        res.status(500).json({ error: 'Error al obtener productos' });
-    }
+import Product from "../models/Product.js";
+
+export const getAllProducts = async (req, res, next) => {
+  try {
+    const products = await Product.find().lean();
+    res.json(products);
+  } catch (e) { next(e); }
 };
-exports.createProduct = async (req, res) => {
-    try {
-        const { name, price, team, stock, imageUrl } = req.body;
-        const newProduct = new Product({ name, price, team, stock, imageUrl });
-        await newProduct.save();
-        res.status(201).json(newProduct);
-    } catch (error) {
-        res.status(500).json({ error: "Error al crear el producto" });
-    }
+
+export const getProductById = async (req, res, next) => {
+  try {
+    const p = await Product.findById(req.params.id).lean();
+    if (!p) return res.status(404).json({ error: "Producto no encontrado" });
+    res.json(p);
+  } catch (e) { next(e); }
+};
+
+export const createProduct = async (req, res, next) => {
+  try {
+    const p = await Product.create(req.body);
+    res.status(201).json(p);
+  } catch (e) { next(e); }
+};
+
+export const updateProduct = async (req, res, next) => {
+  try {
+    const p = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    if (!p) return res.status(404).json({ error: "Producto no encontrado" });
+    res.json(p);
+  } catch (e) { next(e); }
+};
+
+export const deleteProduct = async (req, res, next) => {
+  try {
+    const p = await Product.findByIdAndDelete(req.params.id);
+    if (!p) return res.status(404).json({ error: "Producto no encontrado" });
+    res.json({ message: "Producto eliminado" });
+  } catch (e) { next(e); }
 };

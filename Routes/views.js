@@ -1,8 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const viewsController = require('../controllers/views');
+import { Router } from "express";
+import { renderHome, renderRealTime } from "../controllers/views.js";
 
-router.get('/', viewsController.renderHome);
-router.get('/realtimeproducts', viewsController.renderRealTimeProducts);
+const router = Router();
 
-module.exports = router;
+router.get("/", renderHome);
+router.get("/realtimeproducts", renderRealTime);
+
+export default router;

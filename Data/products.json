@@ -1,42 +1,52 @@
 [
-    {
-        "id": 1,
-        "name": "Camiseta Lakers",
-        "price": 80,
-        "team": "Lakers",
-        "stock": 10,
-        "imageUrl": "./images/lakers.avif"
-    },
-    {
-        "id": 2,
-        "name": "Camiseta Celtics",
-        "price": 75,
-        "team": "Celtics",
-        "stock": 15,
-        "imageUrl": "./images/BostonGreen.avif"
-    },
-    {
-        "id": 3,
-        "name": "Camiseta Bulls",
-        "price": 70,
-        "team": "Bulls",
-        "stock": 20,
-        "imageUrl": "/images/Bullsred.avif"
-    },
-    {
-        "id": 4,
-        "name": "Camiseta Warriors",
-        "price": 85,
-        "team": "Warriors",
-        "stock": 5,
-        "imageUrl": "/images/warriors.avif"
-    },
-    {
-        "id": 5,
-        "name": "Camiseta Knicks",
-        "price": 90,
-        "team": "Knicks",
-        "stock": 8,
-        "imageUrl": "/images/newyork.avif"
-    }
+  {
+    "title": "Remera Boston Celtics",
+    "description": "Camiseta oficial Boston",
+    "price": 29999,
+    "code": "BOS-TEE-001",
+    "stock": 15,
+    "category": "indumentaria",
+    "team": "Celtics",
+    "imageUrl": "/images/Boston.avif"
+  },
+  {
+    "title": "Buzo Chicago Bulls",
+    "description": "Buzo clásico",
+    "price": 35999,
+    "code": "CHI-BZ-002",
+    "stock": 10,
+    "category": "indumentaria",
+    "team": "Bulls",
+    "imageUrl": "/images/Bulls.avif"
+  },
+  {
+    "title": "Gorra LA Lakers",
+    "description": "Gorra snapback",
+    "price": 19999,
+    "code": "LAL-CAP-003",
+    "stock": 20,
+    "category": "accesorios",
+    "team": "Lakers",
+    "imageUrl": "/images/lakers.avif"
+  },
+  {
+    "title": "Hoodie NY Knicks",
+    "description": "Hoodie urbano",
+    "price": 32999,
+    "code": "NYK-HD-004",
+    "stock": 12,
+    "category": "indumentaria",
+    "team": "Knicks",
+    "imageUrl": "/images/new_york.avif"
+  },
+  {
+    "title": "Remera Golden State Warriors",
+    "description": "Camiseta alternativa",
+    "price": 30999,
+    "code": "GSW-TEE-005",
+    "stock": 8,
+    "category": "indumentaria",
+    "team": "Warriors",
+    "imageUrl": "/images/warriors.avif"
+  }
 ]

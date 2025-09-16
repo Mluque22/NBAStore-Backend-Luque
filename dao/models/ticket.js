@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+// dao/models/ticket.js
+import mongoose from "mongoose";
 
 const ticketSchema = new mongoose.Schema({
     code: { type: String, required: true, unique: true },
@@ -7,4 +8,6 @@ const ticketSchema = new mongoose.Schema({
     purchaser: { type: String, required: true }
 });
 
-module.exports = mongoose.model('Ticket', ticketSchema);
+const TicketModel = mongoose.model("tickets", ticketSchema);
+
+export default TicketModel;

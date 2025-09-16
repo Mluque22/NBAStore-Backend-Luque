@@ -1,63 +1,59 @@
-# 🏀 NBA Store - Backend Ecommerce
+# NBA Store (Fixed)
 
-Proyecto final del curso **Backend II - Arquitectura Profesional**.  
-Este ecommerce simula una tienda de productos de la NBA, desarrollada con una arquitectura robusta, segura y escalable.
+Proyecto Express + Mongo + Handlebars totalmente en **ESM**.
 
----
+## Requisitos
+- Node.js 18+
+- MongoDB en localhost o Atlas
+- Archivo `.env` (copiar desde `.env.example` y ajustar)
 
-## 📦 Tecnologías Utilizadas
+## Scripts
+- `npm run dev` – inicia con nodemon
+- `npm start` – inicia en producción
+- `npm run seed` – importa productos de `data/products.json` en Mongo
 
-- **Node.js**
-- **Express.js**
-- **MongoDB** (con Mongoose)
-- **JWT** para autenticación
-- **Passport.js**
-- **Handlebars** para vistas
-- **Nodemailer** para recuperación de contraseña
-- **Socket.io** (opcional en `realTimeProducts`)
-- **bcrypt** para hashing
-- **dotenv** para variables de entorno
+## Rutas
+- **Vistas**
+  - `GET /` – home (lista de productos)
+  - `GET /realtimeproducts` – demo realtime (estático)
+- **API**
+  - `GET /api/products` – lista
+  - `POST /api/products` – crear
+  - `GET /api/products/:id` – detalle
+  - `PUT /api/products/:id` – actualizar
+  - `DELETE /api/products/:id` – eliminar
+
+  - `POST /api/carts` – crear carrito
+  - `POST /api/carts/:cid/products/:pid` – agregar producto
+  - `GET /api/carts/:cid` – obtener carrito
+
+  - `POST /api/sessions/register`
+  - `POST /api/sessions/login`
+  - `GET /api/sessions/current` (JWT por cookie)
+
+## Estructura
+```
+/Server.js
+/models
+/controllers
+/routes
+/views
+/public
+/data
+/config
+/middlewares
+/utils
+```
 
 
-## ✅ Funcionalidades
+## Router de Mocks (`/api/mocks`)
+- `GET /api/mocks/mockingusers` → devuelve **50 usuarios mock** en formato similar a Mongo (con `_id`, fechas, `__v`, etc.). **Password** es la encriptación de `"coder123"`, `role` aleatorio entre `"user"` y `"admin"`, `pets: []`.
+- `GET /api/mocks/mockingpets` → devuelve **100 mascotas mock** (no persiste).
+- `POST /api/mocks/generateData` → inserta en base de datos la cantidad indicada. Body JSON:
+  ```json
+  { "users": 50, "pets": 100 }
+  ```
+  Luego comprobá con:
+  - `GET /api/users`
+  - `GET /api/pets`
 
-### 🔐 Autenticación
-
-- Registro y login con JWT.
-- Middleware `authJWT` para proteger rutas.
-- Endpoints protegidos según rol (`admin`, `user`).
-
-### 👤 Roles y Autorización
-
-- `admin`: puede crear, editar y eliminar productos.
-- `user`: puede agregar productos a su carrito y comprar.
-
-### 🛒 Carrito y Compras
-
-- Creación y consulta de carritos.
-- Lógica de compra:
-  - Verificación de stock.
-  - Generación de **Ticket**.
-  - Eliminación del carrito al finalizar compra.
-
-### 📄 Modelo Ticket
-
-- `code` único (auto-generado)
-- `amount` total de la compra
-- `purchaser` (correo del usuario)
-- `purchase_datetime` automático
-
-### 📤 Recuperación de Contraseña
-
-- Ruta para solicitar recuperación (`/api/sessions/recovery`)
-- Envío de mail con link de restablecimiento
-- Token expira a la hora
-- No permite reutilizar la misma contraseña
-
-### 🔒 Seguridad
-
-- Contraseñas hasheadas con bcrypt
-- Tokens JWT firmados con secreto del `.env`
-- DTO para ocultar datos sensibles (`/api/sessions/current`)
-
----

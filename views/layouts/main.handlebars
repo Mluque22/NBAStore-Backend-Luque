@@ -2,15 +2,26 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>NBA Store</title>
-    <link rel="stylesheet" href="/Public/css/styles.css" />
-    <script defer src="/Public/js/app.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+  <link rel="icon" href="/icons/basketball.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/css/styles.css" />
 </head>
 
 <body>
+  <header class="header">
+    <a href="/" class="brand">
+      <img src="/icons/basketball.svg" alt="" class="brand-icon" aria-hidden="true" />
+      <span class="brand-title">NBA Store</span>
+    </a>
+  </header>
+
+  <main class="container">
     {{{body}}}
+  </main>
+
+  <script src="/js/app.js"></script>
 </body>
 
 </html>

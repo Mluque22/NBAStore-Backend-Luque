@@ -1,13 +1,17 @@
-<h1>Productos Disponibles</h1>
-<div id="products">
-    {{#each products}}
-    <div class="product-card">
-        <img src="/images/{{this.team}}.avif" alt="{{this.team}}" class="product-image">
-        <div class="product-info">
-            <h3>{{this.name}}</h3>
-            <p>Precio: ${{this.price}}</p>
-            <p>Stock: {{this.stock}}</p>
-        </div>
-    </div>
-    {{/each}}
+{{!-- Home --}}
+{{#if products.length}}
+<div class="grid">
+  {{#each products}}
+    <article class="card">
+      <img src="{{imageUrl}}" alt="{{title}}" class="thumb" />
+      <div class="card-body">
+        <h3>{{title}}</h3>
+        <p class="muted">{{team}} — {{category}}</p>
+        <p>${{price}}</p>
+      </div>
+    </article>
+  {{/each}}
 </div>
+{{else}}
+  <p>No hay productos aún. Ejecutá <code>npm run seed</code> para importar productos de ejemplo.</p>
+{{/if}}

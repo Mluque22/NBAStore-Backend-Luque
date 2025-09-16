@@ -1,10 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const sessionController = require('../controllers/sessionController');
-const { authJWT } = require('../middlewares/auth');
+import { Router } from "express";
+import passport from "passport";
+import { register, login, current } from "../controllers/sessionController.js";
 
-router.post('/register', sessionController.register);
-router.post('/login', sessionController.login);
-router.get('/current', authJWT, sessionController.current);
+const router = Router();
 
-module.exports = router;
+router.post("/register", register);
+router.post("/login", login);
+router.get("/current", passport.authenticate("jwt", { session: false }), current);
+
+export default router;
