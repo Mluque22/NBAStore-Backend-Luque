@@ -1,4 +1,4 @@
-// routes/tickets.js
+
 import { Router } from "express";
 import { getTickets } from "../controllers/ticketController.js";
 

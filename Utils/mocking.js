@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { faker } from "@faker-js/faker";
 import { hashPassword } from "./crypt.js";
 
-// role aleatorio (15% admin, 85% user aprox.)
+
 const randomRole = () => (Math.random() < 0.15 ? "admin" : "user");
 
 export async function generateUser(index = 0) {

@@ -3,20 +3,24 @@
 Proyecto Express + Mongo + Handlebars totalmente en **ESM**.
 
 ## Requisitos
+
 - Node.js 18+
 - MongoDB en localhost o Atlas
 - Archivo `.env` (copiar desde `.env.example` y ajustar)
 
 ## Scripts
+
 - `npm run dev` – inicia con nodemon
 - `npm start` – inicia en producción
 - `npm run seed` – importa productos de `data/products.json` en Mongo
 
 ## Rutas
+
 - **Vistas**
   - `GET /` – home (lista de productos)
   - `GET /realtimeproducts` – demo realtime (estático)
 - **API**
+
   - `GET /api/products` – lista
   - `POST /api/products` – crear
   - `GET /api/products/:id` – detalle
@@ -32,6 +36,7 @@ Proyecto Express + Mongo + Handlebars totalmente en **ESM**.
   - `GET /api/sessions/current` (JWT por cookie)
 
 ## Estructura
+
 ```
 /Server.js
 /models
@@ -45,8 +50,8 @@ Proyecto Express + Mongo + Handlebars totalmente en **ESM**.
 /utils
 ```
 
-
 ## Router de Mocks (`/api/mocks`)
+
 - `GET /api/mocks/mockingusers` → devuelve **50 usuarios mock** en formato similar a Mongo (con `_id`, fechas, `__v`, etc.). **Password** es la encriptación de `"coder123"`, `role` aleatorio entre `"user"` y `"admin"`, `pets: []`.
 - `GET /api/mocks/mockingpets` → devuelve **100 mascotas mock** (no persiste).
 - `POST /api/mocks/generateData` → inserta en base de datos la cantidad indicada. Body JSON:
@@ -57,3 +62,20 @@ Proyecto Express + Mongo + Handlebars totalmente en **ESM**.
   - `GET /api/users`
   - `GET /api/pets`
 
+El proyecto está **Dockerizado** y cuenta con tests funcionales para los endpoints principales, además de documentación de Swagger para el módulo de Users.
+
+---
+
+## 📦 Docker
+
+La aplicación está lista para ejecutarse mediante Docker. La imagen pública está disponible en Dockerhub:
+
+[Ver imagen en Dockerhub](https://hub.docker.com/repository/docker/mluque22/nba-store/general)
+
+### Cómo ejecutar el proyecto con Docker
+
+1. **Descargar la imagen:**
+
+```bash
+docker pull mluque22/nba-store:latest
+```
